@@ -1,4 +1,6 @@
 package test;
+
+import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -12,12 +14,17 @@ public class TestAddUsuario {
 
 	@Test
 	public void addUsuarioTest() {
-		
-		Usuario user = new Usuario("alecanutto", "123456", "Alessandra Camila", "000.000.000-00");			
-		System.out.println(user.isValid());
+		Usuario user = new Usuario("alecanutto", "123456", "Alessandra Camila", "000.000.000-00");
 		int id = repository.Add(user);
 		assertTrue(id > 0);
-		
+	}
+
+	@Test
+	public void loginAcima20CaracteresException() {
+		Usuario user = new Usuario("alessandracamiladepaulacanuto", "123456", "Alessandra Camila", "000.000.000-00");
+		assertThrows(String.join(";", user.getListError()), NullPointerException.class, () -> {
+			user.isValid();
+		});
 	}
 
 }
