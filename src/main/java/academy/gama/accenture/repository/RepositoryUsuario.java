@@ -8,7 +8,9 @@ import academy.gama.accenture.model.interfaces.IUsuario;
 public class RepositoryUsuario implements IUsuario {
 
 	public int Add(Usuario user) {
-		// TODO Auto-generated method stub
+		if (user.isValid()) {
+			return 1;
+		}
 		return 0;
 	}
 
