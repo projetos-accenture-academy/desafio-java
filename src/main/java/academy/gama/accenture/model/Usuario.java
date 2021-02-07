@@ -9,14 +9,12 @@ public class Usuario extends Base {
 	private String senha;	
 	private String nome;
 	private String cpf;
-	private List<String> listError;
 	
-	public Usuario() {
-		listError = new ArrayList<String>();
-	};
+	private final List<String> listError = new ArrayList<String>();
 	
-	public Usuario(String login, String senha, String nome, String cpf) {
-		super();
+	public Usuario() {}
+	
+	public Usuario(String login, String senha, String nome, String cpf) {		
 		this.login = login;
 		this.senha = senha;
 		this.nome = nome;
@@ -58,7 +56,7 @@ public class Usuario extends Base {
 	}
 	
 	public boolean isValid() {
-		if (login.isEmpty()) {
+		if (login.length() == 0) {
 			listError.add("O login deve ser informado.");
 			return false;
 		}		

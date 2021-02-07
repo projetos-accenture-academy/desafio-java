@@ -1,21 +1,24 @@
 package academy.gama.accenture.service;
 
-import academy.gama.accenture.dto.LoginDto;
-import academy.gama.accenture.repository.RepositoryConta;
-import academy.gama.accenture.repository.RepositoryUsuario;
+import academy.gama.accenture.model.interfaces.ILogin;
+import academy.gama.accenture.repository.RepositoryLogin;
 
-public class ServiceLogin {
+public class ServiceLogin implements ILogin {
 
-	RepositoryUsuario repositoryUsuario;
-	RepositoryConta repositoryConta;
+	RepositoryLogin repositoryLogin;
 
-	public ServiceLogin() {
-	  repositoryUsuario = new RepositoryUsuario();
-	  repositoryConta = new RepositoryConta();
+	public ServiceLogin(RepositoryLogin repositoryLogin) {
+	  this.repositoryLogin = repositoryLogin;
 	}
 	
-	public boolean Logar(LoginDto loginDto) {
-		return true; 
+	@Override
+	public boolean connect(String login, String senha) {
+		return repositoryLogin.connect(login, senha);
+	}
+
+	@Override
+	public boolean disconnect(String login, String senha) {
+		return repositoryLogin.disconnect(login, senha);
 	}
 	
 }

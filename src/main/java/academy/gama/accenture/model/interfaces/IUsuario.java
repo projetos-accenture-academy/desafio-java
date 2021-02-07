@@ -5,15 +5,15 @@ import java.util.List;
 import academy.gama.accenture.model.Usuario;
 
 public interface IUsuario {
-	int Add(Usuario user);
+	int add(Usuario user);
 
-	boolean Update(Usuario user);
+	boolean update(Usuario user);
 
-	Usuario Get(int id);
+	Usuario get(int id);
 	
-	Usuario Get(String cpf);
+	Usuario get(String login);
 
-	List<Usuario> GetAll();
+	List<Usuario> getAll();
 
-	void Remove(int id);
+	boolean remove(int id);
 }

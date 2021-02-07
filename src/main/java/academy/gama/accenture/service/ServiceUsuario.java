@@ -9,34 +9,33 @@ import academy.gama.accenture.repository.RepositoryUsuario;
 public class ServiceUsuario implements IUsuario {
 
 	private RepositoryUsuario repositoryUsuario;
-	
+
 	public ServiceUsuario(RepositoryUsuario repositoryUsuario) {
-		super();
 		this.repositoryUsuario = repositoryUsuario;
 	}
 
-	public int Add(Usuario user) {
-		return Get(user.getCpf()).getId();
+	public int add(Usuario user) {
+		return get(user.getCpf()).getId();
 	}
 
-	public boolean Update(Usuario user) {
-		return repositoryUsuario.Update(user);
+	public boolean update(Usuario user) {
+		return repositoryUsuario.update(user);
 	}
 
-	public Usuario Get(int id) {
-		return repositoryUsuario.Get(id);
+	public Usuario get(int id) {
+		return repositoryUsuario.get(id);
 	}
 
-	public List<Usuario> GetAll() {
-		return repositoryUsuario.GetAll();
+	public List<Usuario> getAll() {
+		return repositoryUsuario.getAll();
 	}
 
-	public void Remove(int id) {
-		repositoryUsuario.Remove(id);
+	public boolean remove(int id) {
+		return repositoryUsuario.remove(id);
 	}
 
-	public Usuario Get(String cpf) {
-		return repositoryUsuario.Get(cpf);
-	}		
-	
+	public Usuario get(String login) {
+		return repositoryUsuario.get(login);
+	}
+
 }
